@@ -2,7 +2,10 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import { AppDataSource } from "./config/db";
+import "reflect-metadata";
 import userRouter from "./routes/userRoutes";
+import authRouter from "./routes/authRoutes";
 
 dotenv.config();
 const app = express();
@@ -12,10 +15,23 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 
+app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+async function main() {
+  try {
+    await AppDataSource.initialize();
+    console.log("Database conectada exitosamente 👍");
+
+    app.listen(PORT, () => {
+      console.log(`Server está corriendo en http://localhost:${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("Error al inicializar la base de datos:", error);
+  }
+}
+
+main();

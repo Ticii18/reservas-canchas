@@ -19,7 +19,7 @@ export class UserController {
         }
     }
 
-    static async create(req: Request, res: Response) {
+    static async createUser(req: Request, res: Response) {
         try {
             const newUser = await userService.createUser(req.body);
             res.status(201).json(newUser);
