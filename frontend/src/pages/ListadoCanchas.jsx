@@ -1,0 +1,22 @@
+import { useEffect, useState } from 'react';
+import canchaService from '../services/canchaService';
+import CanchaCard from '../components/CanchaCard';
+
+function ListadoCanchas() {
+  const [canchas, setCanchas] = useState([]);
+
+  useEffect(() => {
+    canchaService.getCanchas().then(setCanchas).catch(() => alert('Error al cargar canchas'));
+  }, []);
+
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-6">Canchas disponibles</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {canchas.map(c => <CanchaCard key={c.id} cancha={c} />)}
+      </div>
+    </div>
+  );
+}
+
+export default ListadoCanchas;
