@@ -1,10 +1,11 @@
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext.tsx';
 
-function MiPerfil() {
+const MiPerfil: React.FC = () => {
   const { user } = useContext(AuthContext);
 
   if (!user) return <p>Inicia sesión para ver tu perfil.</p>;
+  console.log(user)
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded shadow">
@@ -13,6 +14,6 @@ function MiPerfil() {
       <p><strong>Email:</strong> {user.email}</p>
     </div>
   );
-}
+};
 
 export default MiPerfil;

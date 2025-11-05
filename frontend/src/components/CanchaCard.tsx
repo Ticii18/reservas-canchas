@@ -1,4 +1,11 @@
-function CanchaCard({ cancha }) {
+interface Cancha {
+  imagen?: string;
+  nombre: string;
+  ubicacion?: string;
+  precio: number;
+}
+
+function CanchaCard({ cancha }: { cancha: Cancha }) {
   return (
     <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition">
       <img

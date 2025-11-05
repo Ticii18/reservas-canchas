@@ -1,8 +1,10 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+// User.ts
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Rol } from "./Rol";
 
 @Entity('usuarios')
-export class User{
-    @PrimaryGeneratedColumn()
+export class User {
+    @PrimaryGeneratedColumn({ name: 'id_usuario' })
     id_usuario!: number;
 
     @Column()
@@ -13,15 +15,14 @@ export class User{
 
     @Column()
     telefono!: number;
-    
+
     @Column()
     email!: string;
-    
+
     @Column()
     password!: string;
 
-    @Column()
-    rol!: number;
-    
-    
+    @ManyToOne(() => Rol, (rol) => rol.usuarios, { nullable: false })
+    @JoinColumn({ name: 'id_rol', referencedColumnName: 'id_rol' })
+    rol!: Rol;
 }
