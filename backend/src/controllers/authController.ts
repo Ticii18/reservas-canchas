@@ -1,15 +1,11 @@
-// src/controller/authController.ts
-
 import { Request, Response } from 'express';
 import * as authService from '../services/authService'
 
 export const register = async (req: Request, res: Response) => {
   try {
-    // El servicio ya se encarga de hashear
     const user = await authService.register(req.body);
     res.status(201).json(user);
   } catch (error: any) {
-    // Deberías manejar errores específicos (ej. email duplicado)
     res.status(400).json({ error: error.message || 'Error al registrar usuario' });
   }
 };
@@ -23,7 +19,6 @@ export const login = async (req: Request, res: Response) => {
 
     const token = await authService.login(email, password);
     
-    // Devuelves el token al cliente
     res.json({ token });
 
   } catch (error: any) {

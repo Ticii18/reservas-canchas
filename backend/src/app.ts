@@ -7,6 +7,7 @@ import "reflect-metadata";
 import userRouter from "./routes/userRoutes";
 import authRouter from "./routes/authRoutes";
 import reservaRouter from "./routes/reservaRoutes";
+import roleRouter from "./routes/roleRoutes";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
 app.use("/api/reservas",reservaRouter)
+app.use("/api/roles", roleRouter)
 
 const PORT = process.env.PORT;
 

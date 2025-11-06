@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { User } from "../entities/User";
 import { Reserva } from "../entities/Reserva";
 import { Cancha } from "../entities/Cancha";
+import { Rol } from "../entities/Rol";
 
 dotenv.config();
 
