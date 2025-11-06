@@ -6,6 +6,7 @@ import { AppDataSource } from "./config/db";
 import "reflect-metadata";
 import userRouter from "./routes/userRoutes";
 import authRouter from "./routes/authRoutes";
+import reservaRouter from "./routes/reservaRoutes";
 
 dotenv.config();
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
+app.use("/api/reservas",reservaRouter)
 
 const PORT = process.env.PORT;
 
