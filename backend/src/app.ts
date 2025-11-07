@@ -8,7 +8,7 @@ import userRouter from "./routes/userRoutes";
 import authRouter from "./routes/authRoutes";
 import reservaRouter from "./routes/reservaRoutes";
 import roleRouter from "./routes/roleRoutes";
-
+import canchaRouter from "./routes/canchaRoutes";
 dotenv.config();
 const app = express();
 
@@ -21,6 +21,7 @@ app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
 app.use("/api/reservas",reservaRouter)
 app.use("/api/roles", roleRouter)
+app.use("/api/canchas", canchaRouter)
 
 const PORT = process.env.PORT;
 

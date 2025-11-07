@@ -22,7 +22,7 @@ export class Reserva {
     @Column()
     hora_fin!: string;
 
-    @ManyToOne(() => User, { eager: true }) 
+    @ManyToOne(() => User, { eager: false }) 
     @JoinColumn({name: "id_usuario"}) 
     id_usuario!: User;
 

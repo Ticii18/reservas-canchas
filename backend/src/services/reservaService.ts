@@ -1,11 +1,11 @@
+import { DeleteResult } from "typeorm";
 import { Reserva } from "../entities/Reserva";
-import { User } from "../entities/User";
 import { reservaRepository } from "../repositories/reservaRepository";
 
 
 export class ReservaService {
 
-    async getAllReservas(): Promise<any[]> 
+    async getAllReservas(): Promise<Reserva[]> 
     {
         return await reservaRepository.find();
     }
@@ -13,5 +13,9 @@ export class ReservaService {
     async createReserva(data: any): Promise<any> {
         const reserva = reservaRepository.create(data);
         return reservaRepository.save(reserva);
+    }
+
+    async deleteReserva(id: number): Promise<DeleteResult>{
+        return await reservaRepository.delete({id_reserva:id})
     }
 }
