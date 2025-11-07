@@ -30,7 +30,7 @@ function Login() {
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">Entrar</button>
       </form>
     </div>
-  );
+  );  
 }
 
 export default Login;
