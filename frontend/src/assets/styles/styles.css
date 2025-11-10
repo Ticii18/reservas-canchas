@@ -1,0 +1,163 @@
+/* Variables de color (opcional, para mantener consistencia) */
+:root {
+  --primary-green: #2ecc71; /* Un verde vibrante similar al botón */
+  --header-green: #34a853; /* Un verde más oscuro para el encabezado */
+  --light-green-bg: #e6f7ee; /* Fondo muy claro (fuera del card) */
+  --text-dark: #333;
+  --text-light: #fff;
+  --input-border: #ccc;
+  --link-color: #34a853;
+}
+
+/* 1. Contenedor principal y fondo */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-green-bg); /* Fondo sutilmente verde */
+  padding: 20px;
+}
+
+.login-card-wrapper {
+  /* Envuelve el card para centrarlo si el container es mayor */
+  width: 100%;
+  max-width: 400px; /* Ancho máximo típico de un formulario */
+}
+
+/* 2. Tarjeta del formulario (Card) */
+.login-card {
+  background-color: var(--text-light);
+  border-radius: 15px; /* Esquinas redondeadas */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden; /* Importante para que el header redondeado funcione */
+}
+
+/* 3. Encabezado (Header) - Verde */
+.login-header {
+  background-color: var(--header-green);
+  color: var(--text-light);
+  padding: 40px 20px 20px 20px; /* Padding superior para el logo/bola */
+  text-align: center;
+  position: relative;
+  /* El degradado o el diseño de las esquinas superiores */
+  /* Nota: En la imagen tiene un gradiente o decoraciones circulares. */
+}
+
+.login-title h2 {
+  font-size: 1.8em;
+  margin: 0;
+  font-weight: bold; /* 'Mi Cancha' se ve en negrita */
+}
+
+.login-title p {
+  font-size: 0.9em;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* Estilo del logo (balón) */
+.ball-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ball-wrapper {
+  width: 70px; /* Tamaño del balón */
+  height: 70px;
+  background-color: var(--text-light); /* Fondo blanco del balón */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ball-svg {
+  width: 70%;
+  height: 70%;
+  color: var(--header-green); /* Color del dibujo del balón */
+}
+
+/* 4. Contenido del Formulario */
+.login-form-wrapper {
+  padding: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre grupos de formulario */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.9em;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  display: flex; /* Para alinear el ícono si se añade */
+  align-items: center;
+}
+
+.form-input {
+  padding: 12px 15px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px; /* Bordes redondeados del input */
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: var(--primary-green);
+}
+
+/* 5. Botón de Enviar */
+.submit-button {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #27ae60; /* Un verde ligeramente más oscuro */
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 6. Enlace de Registro */
+.register-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.95em;
+  color: var(--text-dark);
+}
+
+.register-link a {
+  color: var(--link-color); /* Color del texto del link */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.register-link a:hover {
+  color: #27ae60;
+  text-decoration: underline;
+}
