@@ -1,6 +1,6 @@
-// CanchaCard.jsx
 import { useNavigate } from "react-router-dom";
 
+// Definición de la interfaz (mantengo la tuya original)
 export interface Cancha {
   id_cancha: number;
   estado: string;
@@ -11,42 +11,42 @@ export interface Cancha {
 
 function CanchaCard({ cancha }: { cancha: Cancha }) {
   const navigate = useNavigate();
+  // console.log("Renderizando CanchaCard para:", cancha);
 
   const handleReserva = () => {
     navigate(`/reservar/${cancha.id_cancha}`);
   };
 
   return (
-    // Versión compacta: p-4, text-xl, text-3xl
-    <div className="bg-white rounded-xl shadow-md p-4 flex flex-col justify-between h-full transform hover:scale-[1.03] transition-all duration-300 border-b-2 border-green-500 hover:border-green-700">
+    // Estilos mejorados: Sombra más profunda, hover scale, borde inferior verde
+    <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col justify-between h-full transform hover:scale-[1.03] transition-all duration-300 border-b-4 border-green-500 hover:border-green-700">
       <div>
-        {/* Nombre de la cancha (text-xl) */}
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-xl font-bold text-green-800 tracking-tight">{cancha.nombre}</h2>
-          <span className="text-lg text-green-500">⚽</span> 
+        {/* Nombre de la cancha con ícono */}
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="text-3xl font-black text-green-800 tracking-tight">{cancha.nombre}</h2>
         </div>
 
-        {/* Tipo de pasto como un "badge" más pequeño (py-0.5, text-xs) */}
-        <span className={`inline-block px-2 py-0.5 text-xs font-semibold rounded-full mb-3 ${
-            cancha.tipo_pasto?.toLowerCase().includes('sintético') 
-                ? 'bg-yellow-100 text-yellow-800' 
-                : 'bg-green-100 text-green-800'
+        {/* Tipo de pasto como un "badge" */}
+        <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full mb-4 ${
+            cancha.tipo_pasto.toLowerCase().includes('sintético') 
+                ? 'bg-yellow-100 text-yellow-800' // Estilo para sintético
+                : 'bg-green-100 text-green-800'  // Estilo para natural
         }`}>
             Pasto: {cancha.tipo_pasto}
         </span>
       </div>
 
       <div>
-          {/* Precio más pequeño (text-3xl) */}
-          <p className="text-3xl text-green-600 font-extrabold my-3 text-center">
+          {/* Precio más grande y centrado */}
+          <p className="text-4xl text-green-600 font-extrabold my-4 text-center">
               ${cancha.precio_hora}
-              <span className="text-sm font-normal text-gray-500 ml-1">/hora</span>
+              <span className="text-base font-normal text-gray-500 ml-1">/hora</span>
           </p>
 
-          {/* Botón de reservar (py-2, text-base) */}
+          {/* Botón de reservar con efecto flotante */}
           <button
             onClick={handleReserva}
-            className="w-full py-2 mt-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-base rounded-lg shadow-md hover:from-green-600 hover:to-emerald-600 hover:shadow-lg transition-all active:scale-[0.98]"
+            className=" text-black w-full py-3 mt-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-lg hover:from-green-600 hover:to-emerald-600 hover:shadow-xl transition-all active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-green-300"
           >
             ¡Reservar Ahora!
           </button>
