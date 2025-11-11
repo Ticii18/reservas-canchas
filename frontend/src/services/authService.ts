@@ -1,4 +1,4 @@
-import { api } from "./api";
+import  api  from "./api";
 
 export const authService = {
   // login now stores token, fetches full user profile from backend and stores it
@@ -53,4 +53,3 @@ export const authService = {
 
   
 };
-

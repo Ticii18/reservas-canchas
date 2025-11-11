@@ -10,6 +10,8 @@ import ListadoCanchas from './pages/ListadoCanchas';
 import MiPerfil from './pages/MiPerfil';
 import MisReservas from './pages/MisReservas';
 import AdminPanel from './pages/AdminPanel';
+import ReservaForm from "./components/ReservaForm";
+
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -50,6 +52,8 @@ function App() {
           <Route path="/perfil" element={<MiPerfil />} />
           <Route path="/reservas" element={<MisReservas />} />
           <Route path="/admin" element={<AdminPanel />} />
+              <Route path="/reservar/:id" element={<ReservaForm />} />
+
         </Routes>
       </main>
       {user && <Footer />}

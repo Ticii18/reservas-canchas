@@ -1,7 +1,13 @@
-import { api } from "./api";
+import api from './api';
 
+export const obtenerCanchas = async () => {
+  const response = await api.get('/canchas');
+  return response.data;
+};
+ 
 const getCanchas = async () => {
   const res = await api.get('/canchas');
+  console.log("Canchas obtenidas:", res.data);
   return res.data;
 };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
-import { api } from '../services/api';
+import api from '../services/api';
 
 function Register() {
   const [form, setForm] = useState({
