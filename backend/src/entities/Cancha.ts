@@ -20,4 +20,7 @@ export class Cancha {
 
     @Column()
     estado!:string;
+
+    @Column()
+    urlImg!:string;
 }

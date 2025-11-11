@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
-
+// app.use("cookie-parser")
 
 app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)

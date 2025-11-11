@@ -19,7 +19,7 @@ function CanchaCard({ cancha }: { cancha: Cancha }) {
 
   return (
     // Estilos mejorados: Sombra más profunda, hover scale, borde inferior verde
-    <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col justify-between h-full transform hover:scale-[1.03] transition-all duration-300 border-b-4 border-green-500 hover:border-green-700">
+    <div className="bg-white rounded-3xl shadow-xl p-20 m-10 flex flex-col justify-between h-full transform hover:scale-[1.03] transition-all duration-300 border-b-4 border-green-500 hover:border-green-700">
       <div>
         {/* Nombre de la cancha con ícono */}
         <div className="flex justify-between items-center mb-3">

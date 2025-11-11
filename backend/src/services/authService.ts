@@ -8,6 +8,7 @@ const userService = new UserService();
 
 export const register = async (userData: any): Promise<User> => {
   // 1. Hashear la contraseña
+  console.log("acá",userData)
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(userData.password, salt);
 
