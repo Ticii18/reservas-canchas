@@ -10,11 +10,11 @@ function Login() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e : any) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
     if (!credentials.email || !credentials.password) {
       alert("Por favor completá todos los campos.");
@@ -23,11 +23,7 @@ function Login() {
 
     try {
       const loggedUser = await login(credentials);
-      const isAdmin =
-        loggedUser &&
-        (loggedUser.role === "admin" ||
-          (Array.isArray(loggedUser.roles) &&
-            loggedUser.roles.some((r) => r.name === "admin")));
+      const isAdmin = loggedUser && (loggedUser.role === "admin" || (Array.isArray(loggedUser.roles) && loggedUser.roles.some((r : any) => r.name === "admin")));
       navigate(isAdmin ? "/admin" : "/canchas");
     } catch {
       alert("Error al iniciar sesión. Verificá tus datos.");
