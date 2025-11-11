@@ -1,3 +1,4 @@
+
 import { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
@@ -11,17 +12,17 @@ import MiPerfil from './pages/MiPerfil';
 import MisReservas from './pages/MisReservas';
 import AdminPanel from './pages/AdminPanel';
 import ReservaForm from "./components/ReservaForm";
+import CanchasDisponibles from "./pages/CanchasDisponibles";
+
 
 
 function App() {
   const { user } = useContext(AuthContext);
 
+  console.log(user);
+  
   // helper to detect admin role (supports different user shapes)
-  const isAdmin = !!(
-    user && (
-      user.role === 'admin' ||
-      user.rol === 'admin' ||
-      (Array.isArray((user as any).roles) && (user as any).roles.some((r: any) => r.nombre === 'admin' || r.name === 'admin'))
+  const isAdmin = !!(user && (user.role === 'admin' ||user.rol === 'admin' ||(Array.isArray((user as any).roles) && (user as any).roles.some((r: any) => r.nombre === 'admin' || r.name === 'admin'))
     )
   );
 
@@ -53,6 +54,8 @@ function App() {
           <Route path="/reservas" element={<MisReservas />} />
           <Route path="/admin" element={<AdminPanel />} />
               <Route path="/reservar/:id" element={<ReservaForm />} />
+              <Route path="/canchas-disponibles" element={<CanchasDisponibles />} />
+
 
         </Routes>
       </main>

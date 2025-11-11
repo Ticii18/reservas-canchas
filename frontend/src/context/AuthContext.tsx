@@ -1,10 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { authService } from '../services/authService';
+import React, { createContext, useState, useEffect, useMemo } from "react";
+import { authService } from "../services/authService";
 
-type User = { id?: number; nombre?: string; email?: string; [key: string]: any } | null;
+type User = { id?: number; nombre?: string; email?: string; role?: string; roles?: any[] } | null;
 
 type AuthContextType = {
   user: User;
+  isAdmin: boolean;
   login: (credentials: any) => Promise<any>;
   logout: () => void;
 };
@@ -30,8 +31,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
   };
 
+  const isAdmin = useMemo(() => {
+    return !!user && (user.role === "Admin" || user.roles?.some((r: any) => r.name === "Admin"));
+  }, [user]);
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, isAdmin, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

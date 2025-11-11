@@ -12,13 +12,13 @@ function Header() {
     navigate("/login");
   };
 
-  const isAdmin = !!(
+  const isAdmin = !(
     user &&
-    (user.role === "admin" ||
-      user.rol === "admin" ||
+    (user.role === "Admin" ||
+      user.rol === "Admin" ||
       (Array.isArray(user.roles) &&
         user.roles.some(
-          (r) => r.nombre === "admin" || r.name === "admin"
+          (r) => r.nombre === "Admin" || r.name === "Admin"
         )))
   );
 
@@ -46,7 +46,14 @@ function Header() {
             to="/canchas"
             className="text-gray-700 hover:text-green-600 transition-colors font-medium"
           >
-            Canchas
+            Todas las Canchas
+          </Link>
+
+          <Link
+            to="/canchas-disponibles"
+            className="text-gray-700 hover:text-green-600 transition-colors font-medium"
+          >
+            Canchas Disponibles
           </Link>
 
           {user ? (
